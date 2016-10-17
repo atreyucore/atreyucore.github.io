@@ -1,8 +1,4 @@
-/*
-	Astral by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 (function($) {
 
@@ -208,23 +204,6 @@
 				// Fix: Placeholder polyfill.
 					$('form').placeholder();
 
-        // Gallery.
-          $window.on('load', function() {
-            $('.gallery').poptrox({
-              baseZIndex: 10001,
-              useBodyOverflow: false,
-              usePopupEasyClose: false,
-              overlayColor: '#1f2328',
-              overlayOpacity: 0.65,
-              usePopupDefaultStyling: false,
-              usePopupCaption: true,
-              popupLoaderText: '',
-              windowMargin: (skel.breakpoint('mobile').active ? 5 : 50),
-              usePopupNav: true,
-              overlayClass: 'poptrox-overlay skel-layers-fixed'
-            });
-          });
-
 				// Prioritize "important" elements on mobile.
 					skel.on('+mobile -mobile', function() {
 						$.prioritize(
@@ -236,6 +215,7 @@
 				// CSS polyfills (IE<9).
 					if (skel.vars.IEVersion < 9)
 						$(':last-child').addClass('last-child');
+
 
 				// Init.
 					$window
@@ -253,6 +233,19 @@
 					location.reload(true);
 				}, 50);
 
+			});
+
+		// Poptrox.
+			$('.gallery').poptrox({
+				useBodyOverflow: false,
+				usePopupEasyClose: false,
+				overlayColor: '#0a1919',
+				overlayOpacity: (skel.vars.IEVersion < 9 ? 0 : 0.75),
+				usePopupDefaultStyling: false,
+				usePopupCaption: true,
+				popupLoaderText: '',
+				windowMargin: 10,
+				usePopupNav: true
 			});
 
 	});
